@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="PiggyGame.Controls.PlayerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <Grid x:Name="PContainer" Background="{StaticResource BlackBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <!-- numele playerului -->
+            <TextBlock x:Name="PName"
+                       Text="Player Name"
+                       Style="{StaticResource PlayerName}"
+                       Margin="0, 30, 0, 0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0, 20">
+            <!-- SCORUL TOTAL -->
+            <TextBlock x:Name="PScore"
+                       Text="0"
+                       Style="{StaticResource PlayerScore}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <!-- SCORUL CURENT -->
+            <TextBlock x:Name="PCurrentScore"
+                       Text="0"
+                       Style="{StaticResource PlayerCurrentScore}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3"
+                    Margin="0,60,0,20"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center">
+            
+            <!-- BUTONUL DE ROLL -->
+            <Button x:Name="RollButton"
+                    Margin="15"
+                    Foreground="{StaticResource WihteBrush}">
+                <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Image Source="../Media/roll.png"
+                           Width="24"
+                           Margin="10"/>
+                    <TextBlock Text="Roll" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- BUTONUL DE HOLD -->
+            <Button x:Name="HoldButton"
+                    Margin="15"
+                    Foreground="{StaticResource WihteBrush}">
+                <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Image Source="../Media/hold.png"
+                           Width="24"
+                           Margin="10"/>
+                    <TextBlock Text="Hold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

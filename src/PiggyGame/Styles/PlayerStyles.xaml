@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PiggyGame.Styles">
+
+    <!-- STILUL PENTRU TEXBLOCK GENERAL  NU SE APLICA EXPLICIT PE NICI UNUL ESTE DOAR "MOSTENIT" -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="BasePlayerText">
+        <Setter Property="FontFamily" Value="Consolas"/>
+        <Setter Property="Foreground" Value="{StaticResource WihteBrush}"/>
+    </Style>
+
+    <!-- STILUL PENTRU TEXBLOCK-ul CARE AFISEAZA NUMELE PLAYERILOR DE SUS DE PE FUNDALUL ALBASTRU -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BasePlayerText}" x:Key="PlayerNameInfo">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource RedBrush}"/>
+    </Style>
+    <!-- STILUL PENTRU TEXBLOCK-ul CARE AFISEAZA SCORUL PLAYERILOR DE SUS DE PE FUNDALUL ALBASTRU -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BasePlayerText}" x:Key="PlayerScoreInfo">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource YellowBrush}"/>
+    </Style>
+
+    <!-- STILUL PENTRU NUMELE PLAYERULUI DIN CONTROLUL PlayerControl -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BasePlayerText}" x:Key="PlayerName">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="12"/>
+    </Style>
+
+    <!-- STILUL PENTRU SCORUL TOTAL PLAYERULUI DIN CONTROLUL PlayerControl -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BasePlayerText}" x:Key="PlayerScore">
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="8"/>
+    </Style>
+
+    <!-- STILUL PENTRU SCORUL DIN TURA CURENTA PLAYERULUI DIN CONTROLUL PlayerControl -->
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BasePlayerText}" x:Key="PlayerCurrentScore">
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="6"/>
+    </Style>
+    
+</ResourceDictionary>

@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- STILUL PENTRU BORDURA IN CARE SE AFLA "ZARUL" -->
+    <Style TargetType="{x:Type Border}" x:Key="DiceBorder">
+        <!-- BINDING LA PROPRIETATEA SIZE CU CONVERTORUL CARE MARESTE LUNGIMEA BORDURII -->
+        <Setter Property="Width" Value="{Binding Size, Converter={StaticResource BorderSzieConverter}, ConverterParameter=6}"/>
+        <Setter Property="Height" Value="{Binding Size, Converter={StaticResource BorderSzieConverter}, ConverterParameter=6}"/>
+        <Setter Property="Margin" Value="30"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="BorderBrush" Value="{StaticResource YellowBrush}"/>
+        <Setter Property="CornerRadius" Value="6"/>
+    </Style>
+
+    <!-- STILUL PENTRU CANVAS-ul CARE ESTE "ZARUL" IN SINE-->
+    <Style TargetType="{x:Type Canvas}" x:Key="DiceCanvas">
+        <!-- BINDING LA PROPRIETATEA SIZE -->
+        <Setter Property="Width" Value="{Binding Size}"/>
+        <Setter Property="Height" Value="{Binding Size}"/>
+        <Setter Property="Background" Value="{StaticResource LightGrayBrush}"/>
+    </Style>
+</ResourceDictionary>

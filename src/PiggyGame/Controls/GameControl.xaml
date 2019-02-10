@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="PiggyGame.Controls.GameControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PiggyGame.Controls"
+             mc:Ignorable="d">
+    <Grid Background="{StaticResource BlueBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- PANELUL UNDE ESTE AFISTA SCORUL GLOBAL SI CASTIGATORUL -->
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top">
+
+            <!-- PLAYERUL UNU NUME + SCOR GLOBAL -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="0, 0, 200, 0">
+                <TextBlock x:Name="P1Name" 
+                           Text="Player Name"
+                           Margin="0, 0, 20, 0"
+                           Style="{StaticResource PlayerNameInfo}"/>
+                <TextBlock x:Name="P1Score" 
+                           Text="0"
+                           Style="{StaticResource PlayerScoreInfo}"/>
+            </StackPanel>
+
+            <!-- AFISEAZA CASTIGATORUL SI BUTONUL DE NEW GAME -->
+            <StackPanel x:Name="NewGameTab"
+                        Orientation="Vertical"
+                        Margin="200, 10">
+                <TextBlock x:Name="winner" 
+                           Text="Player One" 
+                           HorizontalAlignment="Center"
+                           Margin="0, 0, 0, 10"
+                           Style="{StaticResource PlayerScoreInfo}"/>
+                <Button Content="New Game"
+                        x:Name="ResetButton"
+                        Background="{StaticResource GreenBrush}"
+                        Foreground="{StaticResource YellowBrush}"/>
+            </StackPanel>
+            
+            <!-- PLAYERUL DOI NUME + SCOR GLOBAL -->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Margin="200, 0, 0, 0">
+                <TextBlock x:Name="P2Name" 
+                           Text="Player Name"
+                           Margin="0, 0, 20, 0"
+                           Style="{StaticResource PlayerNameInfo}"/>
+                <TextBlock x:Name="P2Score" 
+                           Text="0"
+                           Style="{StaticResource PlayerScoreInfo}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!-- TABUL PENTRU PRIMUL PALYER -->
+                <local:PlayerControl
+                x:Name="P1"
+            Grid.Column="0"/>
+                <!-- TABUL PENTRU AL DOILEA PALYER -->
+                <local:PlayerControl
+                x:Name="P2"
+            Grid.Column="1"/>
+            </Grid>
+            
+            <!-- ZARURILE AFISATE IN POZITIE 
+                ABSOLUTA DEASUPRA TUTROR IN MIJLOC -->
+            <!-- CA SA AFISEZI UN ELEMNT IN POZ ABSOLUTA 
+                 1. SA IL PUI LA SF IN GRID SI SA NU AIBA COLOANE SI LINII
+                 2. SAU SA IL PUI IN CANVAS -->
+            <local:DiceControl
+                Size="60.0"
+            x:Name="Dicer"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</UserControl>

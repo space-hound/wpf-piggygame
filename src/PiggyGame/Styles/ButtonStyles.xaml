@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- STILUL SI TEMPLATE-ul PENTRU BUTOANE -->
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
+        <Setter Property="FontWeight" Value="DemiBold"/>
+
+        <Setter Property="Background" Value="Transparent"/>
+
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        
+
+        <Setter Property="Padding" Value="8, 0"/>
+
+        <!-- TEMPLATE-ul PENTRU BUTOANE -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <!-- BUTONUL CONTINE O BORDURA IN CARE SE AFLA CONTINUTUL BUTONULUI -->
+                    <Border 
+                          x:Name="Border"
+                          Padding="{TemplateBinding Padding}"
+                          CornerRadius="3" 
+                          BorderThickness="3"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}">
+                        <!-- "BUTONU" IN SINE CE DEFINESTI IN EL SAU IN TAG-ul " Content="" " -->
+                        <ContentPresenter 
+                            Margin="3"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- TRIGGER PENTRU CAND MOUSE-ul ESTE PESTE BUTON -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BlackBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BlackBrush}" />
+                            <Setter Property="Foreground" Value="{StaticResource WihteBrush}" />
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <!-- TRIGGER PENTRU CAND BUTONUL ESTE APASAT -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource BlackBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource BlueBrush}" />
+                            <Setter Property="Foreground" Value="{StaticResource WihteBrush}" />
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <!-- TRIGGER PENTRU CAND BUTONUL ESTE DEZACITVAT -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="{Binding Background}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{Binding BorderBrush}" />
+                            <Setter Property="Foreground" Value="{StaticResource LightGrayBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
